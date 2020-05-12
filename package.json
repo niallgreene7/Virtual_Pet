@@ -1,14 +1,26 @@
 {
-  "name": "niall",
+  "name": "virtual-pet",
   "version": "1.0.0",
-  "description": "virtual pet by niall",
+  "description": "niall_virtual_pet",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niallgreene7/Virtual_Pet.git"
+  },
   "keywords": [
-    "niall"
+    "virtual",
+    "pet"
   ],
   "author": "niall",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niallgreene7/Virtual_Pet/issues"
+  },
+  "homepage": "https://github.com/niallgreene7/Virtual_Pet#readme",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
 }

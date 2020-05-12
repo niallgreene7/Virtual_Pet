@@ -1,0 +1,14 @@
+{
+  "name": "niall",
+  "version": "1.0.0",
+  "description": "virtual pet by niall",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "niall"
+  ],
+  "author": "niall",
+  "license": "ISC"
+}

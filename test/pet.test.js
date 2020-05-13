@@ -10,20 +10,18 @@ describe('constructor', () => {
   describe('growUp', () => {
     it('increments the age by 1, increments the hunger by 5 and decreases the fitness by 3', () => {
       const pet = new Pet('Niall');
-      pet.growUp();
+      pet.sleep();
       expect(pet.age).toEqual(1);
-      expect(pet.hunger).toEqual(5);
-      expect(pet.fitness).toEqual(7);
+      expect(pet.hunger).toEqual(4);
+      expect(pet.energy).toEqual(10);
     });
   });
 
   describe('growUp', () => {
     it('incriment the fitness by 4 but limited to 10', () => {
       const pet = new Pet('Niall');
-      
-      pet.growUp();
-      pet.growUp();
       pet.walk();
-      expect(pet.fitness).toEqual(8);
+      pet.walk();
+      expect(pet.energy).toEqual(2);
     });
   });

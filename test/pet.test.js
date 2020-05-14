@@ -7,7 +7,7 @@ describe('constructor', () => {
     });
   });
 
-  describe('growUp', () => {
+  describe('sleep', () => {
     it('increments the age by 1, increments the hunger by 5 and decreases the fitness by 3', () => {
       const pet = new Pet('Niall');
       pet.sleep();
@@ -17,11 +17,70 @@ describe('constructor', () => {
     });
   });
 
-  describe('growUp', () => {
-    it('incriment the fitness by 4 but limited to 10', () => {
+  describe('walk', () => {
+    it('decrease the energy on a walk by 5 but limit to 0', () => {
       const pet = new Pet('Niall');
       pet.walk();
       pet.walk();
-      expect(pet.energy).toEqual(2);
+      expect(pet.energy).toEqual(0);
     });
+    it('decrease the energy on a walk by 5 but limit to 0', () => {
+      const pet = new Pet('Niall');
+      pet.walk();
+      pet.walk();
+      pet.walk();
+      expect(pet.energy).toEqual(0);
+    });
+    it('decrease the energy on a walk by 5 but limit to 0', () => {
+      const pet = new Pet('Niall');
+      pet.walk();
+      expect(pet.energy).toEqual(5);
+    });
+  });
+
+  describe('killPet', () => {
+    it('when over walking with no footthe pet it will die', () => {
+      const pet = new Pet('Niall');
+      pet.walk();
+      pet.walk();
+      pet.walk();
+      pet.walk();
+      pet.walk();
+      pet.walk();
+      expect(pet.isAlive).toEqual(false);
+    });
+    it('when over walking with no food the pet it will die', () => {
+      const pet = new Pet('Niall');
+      pet.walk();
+      pet.walk();
+      pet.walk();
+      pet.feed();
+      pet.feed();
+      pet.walk();
+      expect(pet.isAlive).toEqual(true);
+    });
+  });
+
+  describe('limitMeals', () => {
+    it('never go over 3 meals before sleeping', () => {
+      const pet = new Pet('Niall');
+      pet.feed();
+      pet.feed();
+      pet.feed();
+      pet.feed();
+      pet.feed();
+      pet.feed();
+      expect(pet.mealsToday).toEqual(3);
+    });
+    it('when sleep reset the mealsToday', () => {
+      const pet = new Pet('Niall');
+      pet.feed();
+      pet.feed();
+      pet.feed();
+      pet.feed();
+      pet.sleep();
+      pet.feed();
+      expect(pet.mealsToday).toEqual(1);
+    });
+
   });

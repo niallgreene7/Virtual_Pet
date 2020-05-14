@@ -9,7 +9,7 @@ function Pet(name) {
     this.cleanliness = 10;
     this.isAlive = true;
     console.log("Hi im " + name + ", nice to meet you!")
-    console.log("I dont know many comments but try: feed, walk, sleep or clean")
+    console.log("I dont know many commands but try: feed, walk, sleep and clean")
 }
 
 Pet.prototype.walk = function () {
@@ -41,7 +41,7 @@ Pet.prototype.walk = function () {
 
                 //increase strengh when below age 15
                 if (this.age <= 15){
-                    if (this.strength <= 9){this.strength += 1;}
+                    if (this.strength <= 9){this.strength += 1}
                 }else{
                     //decrease strength and more energy when walking over age 15
                     console.log("im getting too old for this")

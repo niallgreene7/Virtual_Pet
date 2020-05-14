@@ -32,7 +32,11 @@ Pet.prototype.walk = function () {
                     this.energy -= 5;
                 }
 
-                this.cleanliness -= 3;
+                if(this.cleanliness < 3){
+                    this.cleanliness -= 0
+                }else{
+                    this.cleanliness -= 3;
+                };
 
                 //increase strengh when below age 15
                 if (this.age <= 15){
@@ -47,10 +51,11 @@ Pet.prototype.walk = function () {
                 }
                 this.hunger += 3;
             }else{
+                //hunger levels are high so only a short walk
                 console.log("only a short one, im starving!")
                 this.hunger += 1;
                 this.hungryWalks += 1;
-                this.cleanliness -= 1;
+                if(this.cleanliness !== 0){this.cleanliness -= 1};
             }
             if (this.cleanliness < 4){console.log("im starting to smell a bit now, any chance of a bath?")}  //walking hungry too much    
         }
@@ -74,7 +79,7 @@ Pet.prototype.sleep = function () {
                 console.log(this.name + " was too old and week and has unfortunately died in its sleep")
             }
         }
-        this.age += 1;          //increase age by 1
+        this.age += 1;      //increase age by 1
         
         //increase huger by 4 max 10
         if (this.hunger > 7){
@@ -90,6 +95,8 @@ Pet.prototype.feed = function () {
     if (this.isAlive === false) {
         console.log("unfortunately " + this.name + " has passed away")
     }else{
+        
+        //show a comment
         if (this.mealsToday === 0){console.log("Breakfast time!")}
         if (this.mealsToday === 1){console.log("whats for lunch?")}
         if (this.mealsToday === 2){console.log("any chance of steak tonight?")}

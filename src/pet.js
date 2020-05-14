@@ -9,17 +9,18 @@ function Pet(name) {
     this.cleanliness = 10;
     this.isAlive = true;
     console.log("Hi im " + name + ", nice to meet you!")
+    console.log("I dont know many comments but try: feed, walk, sleep or clean")
 }
 
 Pet.prototype.walk = function () {
     
     if (this.isAlive === false) {
-        console.log("unfortunately " + this.name + " is dead")
+        throw new Error("unfortunately " + this.name + " is dead")
     }else{
         if (this.hungryWalks > 1){
             //died from walking too much
             this.isAlive = false
-            console.log("You've overworked " + this.name + ", unfortunately its died")
+            console.log("You've overworked " + this.name + ", unfortunately your pet died")
         }else{
         
             if (this.hungryWalks > 1){console.log("Are you ever going to feed me?")}    //walking hungry too much
@@ -49,11 +50,17 @@ Pet.prototype.walk = function () {
                         if (this.energy > 0){this.energy -= 1}
                     }
                 }
-                this.hunger += 3;
+
+                if (this.hunger >= 7){
+                    this.hunger = 10;
+                }else{
+                    this.hunger += 3;
+                }
+
             }else{
                 //hunger levels are high so only a short walk
                 console.log("only a short one, im starving!")
-                this.hunger += 1;
+                if (this.hunger !== 10){this.hunger += 1};
                 this.hungryWalks += 1;
                 if(this.cleanliness !== 0){this.cleanliness -= 1};
             }
@@ -65,7 +72,7 @@ Pet.prototype.walk = function () {
 Pet.prototype.sleep = function () {
     
     if (this.isAlive === false) {
-        console.log("unfortunately " + this.name + " is dead")
+        throw new Error("unfortunately " + this.name + " is dead")
     }else{
         console.log("goodnight!")
         this.energy = 10;      //reset the energy
@@ -93,7 +100,7 @@ Pet.prototype.sleep = function () {
 }
 Pet.prototype.feed = function () {
     if (this.isAlive === false) {
-        console.log("unfortunately " + this.name + " has passed away")
+        throw new Error("unfortunately " + this.name + " has passed away")
     }else{
         
         //show a comment
@@ -120,7 +127,7 @@ Pet.prototype.feed = function () {
 
 Pet.prototype.clean = function () {
     if (this.isAlive === false) {
-        console.log("unfortunately " + this.name + " has passed away")
+        throw new Error("unfortunately " + this.name + " has passed away")
     }else{
         console.log("Bath time!")
         this.cleanliness = 10;

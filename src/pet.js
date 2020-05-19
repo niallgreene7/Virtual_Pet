@@ -8,9 +8,19 @@ function Pet(name) {
     this.hungryWalks = 0;
     this.cleanliness = 10;
     this.isAlive = true;
+    //const new allPet("allPets")
     console.log("Hi im " + name + ", nice to meet you!")
     console.log("I dont know many commands but try: feed, walk, sleep and clean")
 }
+
+//function allPet(name) {
+//    if (allPets !== null){
+//        allPets.push(Pet)
+//    }else{
+//        const allPets = [Pet]
+//    }
+//}
+
 
 Pet.prototype.walk = function () {
     
@@ -32,12 +42,8 @@ Pet.prototype.walk = function () {
                 }else{
                     this.energy -= 5;
                 }
-
-                if(this.cleanliness < 3){
-                    this.cleanliness -= 0
-                }else{
-                    this.cleanliness -= 3;
-                };
+                
+                this.cleanliness < 3 ? this.cleanliness -= 0 : this.cleanliness -= 3;
 
                 //increase strengh when below age 15
                 if (this.age <= 15){
@@ -51,11 +57,7 @@ Pet.prototype.walk = function () {
                     }
                 }
 
-                if (this.hunger >= 7){
-                    this.hunger = 10;
-                }else{
-                    this.hunger += 3;
-                }
+                this.hunger >= 7 ? this.hunger = 10 : this.hunger += 3;
 
             }else{
                 //hunger levels are high so only a short walk
@@ -89,13 +91,9 @@ Pet.prototype.sleep = function () {
         this.age += 1;      //increase age by 1
         
         //increase huger by 4 max 10
-        if (this.hunger > 7){
-            this.hunger = 10;
-        }else{
-            this.hunger += 4;
-        }
+        this.hunger > 7 ? this.hunger = 10 : this.hunger += 4;
+
         this.mealsToday = 0;
-    
     }
 }
 Pet.prototype.feed = function () {
@@ -112,11 +110,8 @@ Pet.prototype.feed = function () {
         if (this.mealsToday === 3){
             console.log("ive had my 3 meals today, i dont want to get fat")
         }else{
-            if (this.hunger < 5){
-                this.hunger = 0;
-            }else{
-                this.hunger -= 5;
-            }
+
+            this.hunger < 5 ? this.hunger = 0 : this.hunger -= 5;
 
             this.mealsToday += 1;
             this.hungryWalks = 0;
@@ -133,5 +128,19 @@ Pet.prototype.clean = function () {
         this.cleanliness = 10;
     }
 }
+
+//allPet.prototype.allClean = function () {
+//
+//    allPets.map(currPet => (){
+//    //for (var i = 0; i < allPets.length; i++) {
+//        if (currPet.isAlive === false) {
+//            throw new Error("unfortunately " + currPet.name + " has passed away")
+//        }else{
+//            console.log("Bath time!")
+//            currPet.cleanliness = 10;
+//        }
+//    }
+//
+//}
 module.exports = Pet;
 

@@ -26,8 +26,7 @@ describe('constructor', () => {
     });
     it('decrease the energy on a walk by 5 but limit to 0', () => {
       const pet = new Pet('Niall');
-      pet.walk();
-      pet.walk();
+      pet.energy = 2
       pet.walk();
       expect(pet.energy).toEqual(0);
     });
@@ -68,16 +67,11 @@ describe('constructor', () => {
       pet.feed();
       pet.feed();
       pet.feed();
-      pet.feed();
-      pet.feed();
       expect(pet.mealsToday).toEqual(3);
     });
     it('when sleep reset the mealsToday', () => {
       const pet = new Pet('Niall');
-      pet.feed();
-      pet.feed();
-      pet.feed();
-      pet.feed();
+      mealsToday = 2
       pet.sleep();
       pet.feed();
       expect(pet.mealsToday).toEqual(1);
